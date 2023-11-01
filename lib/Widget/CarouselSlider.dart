@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:movise/Theme/ColorsTheme.dart';
 
 class CarouselSliderWidget extends StatefulWidget {
   @override
@@ -11,7 +12,7 @@ class _MyWidgetState extends State<CarouselSliderWidget> {
   Widget build(BuildContext context) {
     return CarouselSlider(
       options: CarouselOptions(
-        height: MediaQuery.of(context).size.height * .2,
+        height: MediaQuery.of(context).size.height * .4,
         aspectRatio: 16 / 9,
         viewportFraction: 0.8,
         initialPage: 0,
@@ -34,12 +35,53 @@ class _MyWidgetState extends State<CarouselSliderWidget> {
                 // margin: EdgeInsets.symmetric(horizontal: 1),
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/images/Image.png"),
-                  ),
+                      image: AssetImage("assets/images/Image.png"),
+                      fit: BoxFit.cover),
                 ),
-                child: Text(
-                  'text $i',
-                  style: TextStyle(fontSize: 16.0),
+                child: Stack(
+                  alignment: Alignment.bottomLeft,
+                  children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height * .1,
+                      color: ColorsTheme.black,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 15),
+                            child: Text(
+                              'Dora and the lost city of gold',
+                              textAlign: TextAlign.end,
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Container(
+                            width: 129,
+                            height: 199,
+                            // color: Colors.blue,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage("assets/images/Image.png"),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ));
           },
         );
