@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movise/Screen/Tap/Home.dart';
 import 'package:movise/Theme/ColorsTheme.dart';
 import 'package:movise/Theme/ImagesTheme.dart';
 
@@ -11,13 +12,16 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int cindex = 0;
-  List<Widget> tabs = [];
+  List<Widget> tabs = [
+    HomeTap(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      body: Container(),
+      backgroundColor: ColorsTheme.black,
+      body: tabs[cindex],
       bottomNavigationBar: buildBottomNavigationBar(),
     ));
   }
