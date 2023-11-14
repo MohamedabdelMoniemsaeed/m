@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movise/Screen/HomeScreen.dart';
+import 'package:movise/model/popular/MoviesDM.dart';
 
 void main() {
   runApp(const MyApp());
