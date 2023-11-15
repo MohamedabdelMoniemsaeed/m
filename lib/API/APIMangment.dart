@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:movise/model/popular/MoviesDM.dart';
+import 'package:movise/model/MoviesDM.dart';
 
 class ApiManager {
   static const imagePath = 'https://image.tmdb.org/t/p/w500';
