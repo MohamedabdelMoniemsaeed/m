@@ -1,29 +1,37 @@
 
 import 'package:flutter/material.dart';
 
-class DataSearch extends SearchDelegate<String>{
+class DataSearch extends SearchDelegate<String> {
   @override
   List<Widget>? buildActions(BuildContext context) {
-    // TODO: implement buildActions
-    throw UnimplementedError();
+    // Icon Actions
+    return [
+      IconButton(
+        onPressed: () {},
+        icon: Icon(Icons.cancel),
+      ),
+    ];
   }
 
   @override
   Widget? buildLeading(BuildContext context) {
-    // TODO: implement buildLeading
-    throw UnimplementedError();
+    // Icon Seach
+    return IconButton(
+        onPressed: () {
+          close(context, null!);
+        },
+        icon: Icon(Icons.search));
   }
 
   @override
   Widget buildResults(BuildContext context) {
-    // TODO: implement buildResults
-    throw UnimplementedError();
+    // Results
+    return null!;
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    // TODO: implement buildSuggestions
-    throw UnimplementedError();
+    // Text
+    return Text("Search...");
   }
-
 }
