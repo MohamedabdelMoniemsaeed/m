@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:movise/API/APIMangment.dart';
-import 'package:movise/Widget/New_Releases.dart';
-import 'package:movise/Widget/Recomended.dart';
+import 'package:movise/Widget/home_Screen_Widget/CarouselSlider.dart';
+import 'package:movise/Widget/home_Screen_Widget/New_Releases.dart';
+import 'package:movise/Widget/home_Screen_Widget/Recomended.dart';
 import 'package:movise/model/MoviesDM.dart';
-
-import '../../Widget/CarouselSlider.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
@@ -34,6 +33,7 @@ class _HomeTabState extends State<HomeTab> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            ///----------------------
             SizedBox(
               child: FutureBuilder(
                 future: popular,

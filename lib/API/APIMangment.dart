@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
 import 'package:movise/model/MoviesDM.dart';
 
@@ -14,8 +13,9 @@ class ApiManager {
   static const baseUrlRecomended =
       'https://api.themoviedb.org/3/movie/top_rated?api_key=$api_key';
 
-  static const baseUrlMoreLikeThis =
-      'https://api.themoviedb.org/3/movie/678512/similar?api_key=$api_key';
+  String baseUrlMoreLikeThis(int id) {
+    return 'https://api.themoviedb.org/3/movie/$id/similar?api_key=$api_key';
+  }
 
   Future<List<MoviesDM>> getPopularMovies() async {
     final response = await http.get(Uri.parse(baseUrlPopular));
@@ -48,11 +48,11 @@ class ApiManager {
   }
 
   Future<List<MoviesDM>> getMoreLikeThis(id) async {
-    final response = await http.get(Uri.parse(baseUrlMoreLikeThis));
+    print(id);
+    final response = await http.get(Uri.parse(baseUrlMoreLikeThis(id)));
     if (response.statusCode >= 200 && response.statusCode < 300) {
       final decodedData = json.decode(response.body)['results'] as List;
       return decodedData.map((popular) => MoviesDM.fromJson(popular)).toList();
-      print("id = $id");
     } else {
       throw Exception('Something Happened');
     }
