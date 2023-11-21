@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movise/API/APIMangment.dart';
+import 'package:movise/API/api_Mangment.dart';
 import 'package:movise/Screen/DetailsScreen.dart';
 
 class NewReleases extends StatelessWidget {

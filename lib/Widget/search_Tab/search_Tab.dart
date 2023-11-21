@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:movise/API/APIMangment.dart';
+import 'package:movise/API/api_Mangment.dart';
 import 'package:movise/model/MoviesDM.dart';
 
-class SearchTab extends StatefulWidget {
-  String? name;
+class Search extends StatefulWidget {
+  String name = "block";
   @override
-  State<SearchTab> createState() => _SearchTabState();
+  State<Search> createState() => _SearchState();
 }
 
-class _SearchTabState extends State<SearchTab> {
+class _SearchState extends State<Search> {
   late Future<List<MoviesDM>> datasearch;
 
   @override
   void initState() {
     super.initState();
-    // datasearch = ApiManager().getDataSearch(widget.name);
+    datasearch = ApiManager().getDataSearch();
   }
 
   @override
@@ -23,20 +23,21 @@ class _SearchTabState extends State<SearchTab> {
         onPressed: () {
           showSearch(context: context, delegate: DataSearch());
         },
-        icon: Icon(Icons.search));
+        icon: const Icon(Icons.search));
   }
 }
 
 ///---------------------------------------
 class DataSearch extends SearchDelegate<String> {
+  // List<dynamic> list;
+  // DataSearch({required this.list});
   @override
   List<Widget>? buildActions(BuildContext context) {
-    
     // Icon Actions
     return [
       IconButton(
         onPressed: () {},
-        icon: Icon(Icons.cancel),
+        icon: const Icon(Icons.cancel),
       ),
     ];
   }
@@ -48,7 +49,7 @@ class DataSearch extends SearchDelegate<String> {
         onPressed: () {
           close(context, query);
         },
-        icon: Icon(Icons.arrow_back));
+        icon: const Icon(Icons.arrow_back));
   }
 
   @override
@@ -60,6 +61,6 @@ class DataSearch extends SearchDelegate<String> {
   @override
   Widget buildSuggestions(BuildContext context) {
     // Text
-    return Text("Search...");
+    return const Text("Search...");
   }
 }

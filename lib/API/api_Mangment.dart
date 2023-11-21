@@ -17,8 +17,8 @@ class ApiManager {
     return 'https://api.themoviedb.org/3/movie/$id/similar?api_key=$api_key';
   }
 
-  String baseUrlDataSearch(String name) {
-    return 'https://api.themoviedb.org/3/search/movie?query=${name}&api_key=$api_key';
+  String baseUrlDataSearch() {
+    return 'https://api.themoviedb.org/3/search/movie?query=block&api_key=$api_key';
   }
 
   Future<List<MoviesDM>> getPopularMovies() async {
@@ -62,13 +62,13 @@ class ApiManager {
     }
   }
 
-  // Future<List<MoviesDM>> getDataSearch(name) async {
-  //   final response = await http.get(Uri.parse(baseUrlDataSearch(name)));
-  //   if (response.statusCode >= 200 && response.statusCode < 300) {
-  //     final decodedData = json.decode(response.body)['results'] as List;
-  //     return decodedData.map((popular) => MoviesDM.fromJson(popular)).toList();
-  //   } else {
-  //     throw Exception('Something Happened');
-  //   }
-  // }
+  Future<List<MoviesDM>> getDataSearch() async {
+    final response = await http.get(Uri.parse(baseUrlDataSearch()));
+    if (response.statusCode >= 200 && response.statusCode < 300) {
+      final decodedData = json.decode(response.body)['results'] as List;
+      return decodedData.map((popular) => MoviesDM.fromJson(popular)).toList();
+    } else {
+      throw Exception('Something Happened');
+    }
+  }
 }

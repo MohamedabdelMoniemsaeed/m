@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text("Movies"),
         centerTitle: true,
         actions: [
-          SearchTab(),
+          Search(),
         ],
       ),
       backgroundColor: ColorsTheme.black,

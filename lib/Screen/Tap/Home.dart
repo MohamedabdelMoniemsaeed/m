@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movise/API/APIMangment.dart';
+import 'package:movise/API/api_Mangment.dart';
 import 'package:movise/Widget/home_Screen_Widget/CarouselSlider.dart';
 import 'package:movise/Widget/home_Screen_Widget/New_Releases.dart';
 import 'package:movise/Widget/home_Screen_Widget/Recomended.dart';
